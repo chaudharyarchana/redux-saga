@@ -3,11 +3,11 @@ import Loader from "../Loader";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSelector ,useDispatch } from "react-redux";
-import { increment } from "@/store/auth/auth";
+import { requestLogin } from "@/store/auth/auth";
 
 
 const Login = () => {
-  const store = useSelector((state) => state.counter);
+  const store = useSelector((state) => state.login);
 
  const dispatch = useDispatch()
 
@@ -18,18 +18,17 @@ const Login = () => {
   })
 
   const onLogin = async () => {
-      //  await new Promise((res) => setTimeout(res,3000))
-
-      //  router.push("./products")
-       dispatch(increment())
-      // console.log(data)
+      await dispatch(requestLogin(user))
+       router.push("/products")
+      // console.log(store.count)
+       
   }
 
   return (
     <>
     <div className="w-1/2 h-96 border-2 border-cyan-500 mx-auto mt-20 flex  items-center justify-around">
       <div>
-        <h1>Enter your email {store.count}</h1>
+        <h1>Enter your email </h1>
         <input
           type="email"
           value={user.email}

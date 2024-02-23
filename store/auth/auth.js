@@ -1,24 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLoading : false,
-  count : 0
-}
+  isLoading: false,
+  count: 0,
+};
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: "login",
   initialState,
   reducers: {
-    increment:  (state) => {
-
-       return {...state , isLoading:true}
-       
+    requestLogin: (state) => {
+      
+      state.isLoading = true;
     },
-
+    requestSuccess: (state,actions) => {
+      state.isLoading = false;
+      // console.log(actions.payload.payload)
+    },
   },
-})
+});
 
-// Action creators are generated for each case reducer function
-export const { increment } = counterSlice.actions
+export const { requestLogin, requestSuccess } = counterSlice.actions;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;

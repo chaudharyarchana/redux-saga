@@ -1,8 +1,12 @@
 import Login from "./ui/login/Login";
 
 const Page = () => {
-  return <div>
+  return (
+
+   <div>
     <Login />
-  </div>;
+    </div>
+
+  );
 };
 export default Page;
