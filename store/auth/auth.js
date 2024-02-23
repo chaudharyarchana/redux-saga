@@ -15,11 +15,15 @@ export const counterSlice = createSlice({
     },
     requestSuccess: (state,actions) => {
       state.isLoading = false;
+      state.count += 1
       // console.log(actions.payload.payload)
     },
+    requestFailed : (state) =>{
+      state.isLoading = false;
+    }
   },
 });
 
-export const { requestLogin, requestSuccess } = counterSlice.actions;
+export const { requestLogin, requestSuccess,requestFailed } = counterSlice.actions;
 
 export default counterSlice.reducer;
